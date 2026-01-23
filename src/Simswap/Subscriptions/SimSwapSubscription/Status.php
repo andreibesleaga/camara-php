@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Camara\Simswap\Subscriptions\SimSwapSubscription;
+
+/**
+ * Current status of the subscription - Management of Subscription State engine is not mandatory for now. Note not all statuses may be considered to be implemented. Details:
+ *   - `ACTIVATION_REQUESTED`: Subscription creation (POST) is triggered but subscription creation process is not finished yet.
+ *   - `ACTIVE`: Subscription creation process is completed. Subscription is fully operative.
+ *   - `INACTIVE`: Subscription is temporarily inactive, but its workflow logic is not deleted.
+ *   - `EXPIRED`: Subscription is ended (no longer active). This status applies when subscription is ended due to `SUBSCRIPTION_EXPIRED` event.
+ *   - `DELETED`: Subscription is ended as deleted (no longer active). This status applies when subscription information is kept (i.e. subscription workflow is no longer active but its metainformation is kept).
+ */
+enum Status: string
+{
+    case ACTIVATION_REQUESTED = 'ACTIVATION_REQUESTED';
+
+    case ACTIVE = 'ACTIVE';
+
+    case EXPIRED = 'EXPIRED';
+
+    case INACTIVE = 'INACTIVE';
+
+    case DELETED = 'DELETED';
+}
