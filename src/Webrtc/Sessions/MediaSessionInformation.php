@@ -7,13 +7,18 @@ namespace Camara\Webrtc\Sessions;
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
+use Camara\Webrtc\Sessions\MediaSessionInformation\CallType;
+use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails;
 use Camara\Webrtc\Sessions\MediaSessionInformation\Status;
 
 /**
  * @phpstan-import-type SdpDescriptorShape from \Camara\Webrtc\Sessions\SdpDescriptor
+ * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails
  *
  * @phpstan-type MediaSessionInformationShape = array{
  *   answer?: null|SdpDescriptor|SdpDescriptorShape,
+ *   callType?: null|CallType|value-of<CallType>,
+ *   locationDetails?: null|LocationDetails|LocationDetailsShape,
  *   mediaSessionID?: string|null,
  *   offer?: null|SdpDescriptor|SdpDescriptorShape,
  *   originatorAddress?: string|null,
@@ -41,6 +46,20 @@ final class MediaSessionInformation implements BaseModel
      */
     #[Optional]
     public ?SdpDescriptor $answer;
+
+    /**
+     * Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
+     *
+     * @var value-of<CallType>|null $callType
+     */
+    #[Optional(enum: CallType::class)]
+    public ?string $callType;
+
+    /**
+     * Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
+     */
+    #[Optional]
+    public ?LocationDetails $locationDetails;
 
     /**
      * The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
@@ -105,11 +124,15 @@ final class MediaSessionInformation implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param SdpDescriptor|SdpDescriptorShape|null $answer
+     * @param CallType|value-of<CallType>|null $callType
+     * @param LocationDetails|LocationDetailsShape|null $locationDetails
      * @param SdpDescriptor|SdpDescriptorShape|null $offer
      * @param Status|value-of<Status>|null $status
      */
     public static function with(
         SdpDescriptor|array|null $answer = null,
+        CallType|string|null $callType = null,
+        LocationDetails|array|null $locationDetails = null,
         ?string $mediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
@@ -121,6 +144,8 @@ final class MediaSessionInformation implements BaseModel
         $self = new self;
 
         null !== $answer && $self['answer'] = $answer;
+        null !== $callType && $self['callType'] = $callType;
+        null !== $locationDetails && $self['locationDetails'] = $locationDetails;
         null !== $mediaSessionID && $self['mediaSessionID'] = $mediaSessionID;
         null !== $offer && $self['offer'] = $offer;
         null !== $originatorAddress && $self['originatorAddress'] = $originatorAddress;
@@ -149,6 +174,33 @@ final class MediaSessionInformation implements BaseModel
     {
         $self = clone $this;
         $self['answer'] = $answer;
+
+        return $self;
+    }
+
+    /**
+     * Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
+     *
+     * @param CallType|value-of<CallType> $callType
+     */
+    public function withCallType(CallType|string $callType): self
+    {
+        $self = clone $this;
+        $self['callType'] = $callType;
+
+        return $self;
+    }
+
+    /**
+     * Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
+     *
+     * @param LocationDetails|LocationDetailsShape $locationDetails
+     */
+    public function withLocationDetails(
+        LocationDetails|array $locationDetails
+    ): self {
+        $self = clone $this;
+        $self['locationDetails'] = $locationDetails;
 
         return $self;
     }
