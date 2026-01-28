@@ -27,6 +27,9 @@ final class SubscriptionDetail implements BaseModel
     /** @use SdkModel<SubscriptionDetailShape> */
     use SdkModel;
 
+    /**
+     * The geofencing area where the monitor is active. This area is specified by API consumers in the subscription request. The same area definition is included in event notifications without any modifications.
+     */
     #[Required]
     public DeviceLocationArea $area;
 
@@ -87,6 +90,8 @@ final class SubscriptionDetail implements BaseModel
     }
 
     /**
+     * The geofencing area where the monitor is active. This area is specified by API consumers in the subscription request. The same area definition is included in event notifications without any modifications.
+     *
      * @param DeviceLocationArea|DeviceLocationAreaShape $area
      */
     public function withArea(DeviceLocationArea|array $area): self
