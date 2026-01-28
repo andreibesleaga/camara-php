@@ -10,6 +10,8 @@ use Camara\Core\Contracts\BaseModel;
 use Camara\Devicelocation\Subscriptions\DeviceLocationArea\AreaType;
 
 /**
+ * The geofencing area where the monitor is active. This area is specified by API consumers in the subscription request. The same area definition is included in event notifications without any modifications.
+ *
  * @phpstan-type DeviceLocationAreaShape = array{
  *   areaType: AreaType|value-of<AreaType>
  * }

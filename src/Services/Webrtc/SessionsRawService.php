@@ -13,12 +13,16 @@ use Camara\ServiceContracts\Webrtc\SessionsRawContract;
 use Camara\Webrtc\Sessions\MediaSessionInformation;
 use Camara\Webrtc\Sessions\SdpDescriptor;
 use Camara\Webrtc\Sessions\SessionCreateParams;
+use Camara\Webrtc\Sessions\SessionCreateParams\CallType;
+use Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails;
 use Camara\Webrtc\Sessions\SessionCreateParams\Status;
 use Camara\Webrtc\Sessions\SessionDeleteParams;
 use Camara\Webrtc\Sessions\SessionRetrieveParams;
 use Camara\Webrtc\Sessions\SessionUpdateStatusParams;
 
 /**
+ * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails
+ * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\SessionUpdateStatusParams\LocationDetails as LocationDetailsShape1
  * @phpstan-import-type SdpDescriptorShape from \Camara\Webrtc\Sessions\SdpDescriptor
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
@@ -38,6 +42,8 @@ final class SessionsRawService implements SessionsRawContract
      * @param array{
      *   registrationID: string,
      *   answer?: SdpDescriptor|SdpDescriptorShape,
+     *   callType?: CallType|value-of<CallType>,
+     *   locationDetails?: LocationDetails|LocationDetailsShape,
      *   mediaSessionID?: string,
      *   offer?: SdpDescriptor|SdpDescriptorShape,
      *   originatorAddress?: string,
@@ -171,6 +177,8 @@ final class SessionsRawService implements SessionsRawContract
      * @param string $mediaSessionID_ Path param: The sessionId assigned by the network for the media session
      * @param array{
      *   answer?: SdpDescriptor|SdpDescriptorShape,
+     *   callType?: SessionUpdateStatusParams\CallType|value-of<SessionUpdateStatusParams\CallType>,
+     *   locationDetails?: SessionUpdateStatusParams\LocationDetails|LocationDetailsShape1,
      *   mediaSessionID?: string,
      *   offer?: SdpDescriptor|SdpDescriptorShape,
      *   originatorAddress?: string,
