@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2026-01-29)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/andreibesleaga/camara-php/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** manual updates ([0b92c27](https://github.com/andreibesleaga/camara-php/commit/0b92c27b571a5ba194e0f544b72f8d24183b65cb))
+
 ## 0.1.0 (2026-01-28)
 
 Full Changelog: [v0.0.2...v0.1.0](https://github.com/andreibesleaga/camara-php/compare/v0.0.2...v0.1.0)
