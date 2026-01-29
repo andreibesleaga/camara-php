@@ -21,7 +21,7 @@ To use this package, install via Composer by adding the following to your applic
     }
   ],
   "require": {
-    "org-placeholder/camara": "dev-main"
+    "andreibesleaga/camara-php": "dev-main"
   }
 }
 ```

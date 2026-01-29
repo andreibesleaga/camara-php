@@ -27,7 +27,7 @@
     "sort-packages": true
   },
   "description": "Camara PHP SDK",
-  "name": "org-placeholder/camara",
+  "name": "andreibesleaga/camara-php",
   "require": {
     "php": "^8.1",
     "php-http/discovery": "^1",
