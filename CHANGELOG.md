@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 (2026-01-30)
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/andreibesleaga/camara-php/compare/v0.2.0...v0.2.1)
+
+### Chores
+
+* **internal:** ignore stainless-internal artifacts ([bc188e5](https://github.com/andreibesleaga/camara-php/commit/bc188e5faf2a41e7b5c46b729734e97520ee033b))
+
 ## 0.2.0 (2026-01-29)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/andreibesleaga/camara-php/compare/v0.1.0...v0.2.0)
