@@ -3,6 +3,7 @@
 namespace Tests\Services\Deviceroamingstatus;
 
 use Camara\Client;
+use Camara\Core\Util;
 use Camara\Deviceroamingstatus\Subscriptions\DeviceRoamingStatusProtocol;
 use Camara\Deviceroamingstatus\Subscriptions\DeviceRoamingStatusSubscription;
 use Camara\Deviceroamingstatus\Subscriptions\DeviceRoamingStatusSubscriptionEventType;
@@ -24,7 +25,7 @@ final class SubscriptionsTest extends TestCase
     {
         parent::setUp();
 
-        $testUrl = getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
+        $testUrl = Util::getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
         $client = new Client(
             deviceLocationNotificationsAPIKey: 'My Device Location Notifications API Key',
             notificationsAPIKey: 'My Notifications API Key',

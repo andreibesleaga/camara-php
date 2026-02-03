@@ -3,6 +3,7 @@
 namespace Tests\Services;
 
 use Camara\Client;
+use Camara\Core\Util;
 use Camara\Deviceswap\DeviceswapCheckResponse;
 use Camara\Deviceswap\DeviceswapGetDateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -22,7 +23,7 @@ final class DeviceswapTest extends TestCase
     {
         parent::setUp();
 
-        $testUrl = getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
+        $testUrl = Util::getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
         $client = new Client(
             deviceLocationNotificationsAPIKey: 'My Device Location Notifications API Key',
             notificationsAPIKey: 'My Notifications API Key',

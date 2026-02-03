@@ -169,17 +169,37 @@ class Client extends BaseClient
         ?string $baseUrl = null,
         RequestOptions|array|null $requestOptions = null,
     ) {
-        $this->deviceLocationNotificationsAPIKey = (string) ($deviceLocationNotificationsAPIKey ?? getenv('CAMARA_DEVICE_LOCATION_NOTIFICATIONS_API_KEY'));
-        $this->notificationsAPIKey = (string) ($notificationsAPIKey ?? getenv('CAMARA_NOTIFICATIONS_API_KEY'));
-        $this->populationDensityDataNotificationsAPIKey = (string) ($populationDensityDataNotificationsAPIKey ?? getenv('CAMARA_POPULATION_DENSITY_DATA_NOTIFICATIONS_API_KEY'));
-        $this->regionDeviceCountNotificationsAPIKey = (string) ($regionDeviceCountNotificationsAPIKey ?? getenv('CAMARA_REGION_DEVICE_COUNT_NOTIFICATIONS_API_KEY'));
-        $this->connectivityInsightsNotificationsAPIKey = (string) ($connectivityInsightsNotificationsAPIKey ?? getenv('CAMARA_CONNECTIVITY_INSIGHTS_NOTIFICATIONS_API_KEY'));
-        $this->simSwapNotificationsAPIKey = (string) ($simSwapNotificationsAPIKey ?? getenv('CAMARA_SIM_SWAP_NOTIFICATIONS_API_KEY'));
-        $this->deviceRoamingStatusNotificationsAPIKey = (string) ($deviceRoamingStatusNotificationsAPIKey ?? getenv('CAMARA_DEVICE_ROAMING_STATUS_NOTIFICATIONS_API_KEY'));
-        $this->deviceReachabilityStatusNotificationsAPIKey = (string) ($deviceReachabilityStatusNotificationsAPIKey ?? getenv('CAMARA_DEVICE_REACHABILITY_STATUS_NOTIFICATIONS_API_KEY'));
-        $this->connectedNetworkTypeNotificationsAPIKey = (string) ($connectedNetworkTypeNotificationsAPIKey ?? getenv('CAMARA_CONNECTED_NETWORK_TYPE_NOTIFICATIONS_API_KEY'));
+        $this->deviceLocationNotificationsAPIKey = (string) ($deviceLocationNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_DEVICE_LOCATION_NOTIFICATIONS_API_KEY'
+        ));
+        $this->notificationsAPIKey = (string) ($notificationsAPIKey ?? Util::getenv(
+            'CAMARA_NOTIFICATIONS_API_KEY'
+        ));
+        $this->populationDensityDataNotificationsAPIKey = (string) ($populationDensityDataNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_POPULATION_DENSITY_DATA_NOTIFICATIONS_API_KEY'
+        ));
+        $this->regionDeviceCountNotificationsAPIKey = (string) ($regionDeviceCountNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_REGION_DEVICE_COUNT_NOTIFICATIONS_API_KEY'
+        ));
+        $this->connectivityInsightsNotificationsAPIKey = (string) ($connectivityInsightsNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_CONNECTIVITY_INSIGHTS_NOTIFICATIONS_API_KEY'
+        ));
+        $this->simSwapNotificationsAPIKey = (string) ($simSwapNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_SIM_SWAP_NOTIFICATIONS_API_KEY'
+        ));
+        $this->deviceRoamingStatusNotificationsAPIKey = (string) ($deviceRoamingStatusNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_DEVICE_ROAMING_STATUS_NOTIFICATIONS_API_KEY'
+        ));
+        $this->deviceReachabilityStatusNotificationsAPIKey = (string) ($deviceReachabilityStatusNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_DEVICE_REACHABILITY_STATUS_NOTIFICATIONS_API_KEY'
+        ));
+        $this->connectedNetworkTypeNotificationsAPIKey = (string) ($connectedNetworkTypeNotificationsAPIKey ?? Util::getenv(
+            'CAMARA_CONNECTED_NETWORK_TYPE_NOTIFICATIONS_API_KEY'
+        ));
 
-        $baseUrl ??= getenv('CAMARA_BASE_URL') ?: 'https://api.example.com/camara';
+        $baseUrl ??= Util::getenv(
+            'CAMARA_BASE_URL'
+        ) ?: 'https://api.example.com/camara';
 
         $options = RequestOptions::parse(
             RequestOptions::with(
