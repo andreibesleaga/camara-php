@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams;
+namespace Camara\Deviceidentifier;
 
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
-use Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams\Device\Ipv4Address;
 
 /**
  * End-user equipment able to connect to a mobile network. Examples of devices include smartphones or IoT sensors/actuators.
@@ -19,18 +18,18 @@ use Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams\Device\Ipv4
  * NOTE 1: The MNO might support only a subset of these options. The API invoker can provide multiple identifiers to be compatible across different MNOs. In this case the identifiers MUST belong to the same device.
  * NOTE 2: For the current Commonalities release, we are enforcing that the networkAccessIdentifier is only part of the schema for future-proofing, and CAMARA does not currently allow its use. After the CAMARA meta-release work is concluded and the relevant issues are resolved, its use will need to be explicitly documented in the guidelines.
  *
- * @phpstan-import-type Ipv4AddressShape from \Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams\Device\Ipv4Address
+ * @phpstan-import-type DeviceIdentifierDeviceIpv4AddrShape from \Camara\Deviceidentifier\DeviceIdentifierDeviceIpv4Addr
  *
- * @phpstan-type DeviceShape = array{
- *   ipv4Address?: null|Ipv4Address|Ipv4AddressShape,
+ * @phpstan-type DeviceIdentifierDeviceShape = array{
+ *   ipv4Address?: null|DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape,
  *   ipv6Address?: string|null,
  *   networkAccessIdentifier?: string|null,
  *   phoneNumber?: string|null,
  * }
  */
-final class Device implements BaseModel
+final class DeviceIdentifierDevice implements BaseModel
 {
-    /** @use SdkModel<DeviceShape> */
+    /** @use SdkModel<DeviceIdentifierDeviceShape> */
     use SdkModel;
 
     /**
@@ -43,7 +42,7 @@ final class Device implements BaseModel
      * In all cases, publicAddress must be specified, along with at least one of either privateAddress or publicPort, dependent upon which is known. In general, mobile devices cannot be identified by their public IPv4 address alone.
      */
     #[Optional]
-    public ?Ipv4Address $ipv4Address;
+    public ?DeviceIdentifierDeviceIpv4Addr $ipv4Address;
 
     /**
      * The device should be identified by the observed IPv6 address, or by any single IPv6 address from within the subnet allocated to the device (e.g. adding ::0 to the /64 prefix).
@@ -73,10 +72,10 @@ final class Device implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param Ipv4Address|Ipv4AddressShape|null $ipv4Address
+     * @param DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape|null $ipv4Address
      */
     public static function with(
-        Ipv4Address|array|null $ipv4Address = null,
+        DeviceIdentifierDeviceIpv4Addr|array|null $ipv4Address = null,
         ?string $ipv6Address = null,
         ?string $networkAccessIdentifier = null,
         ?string $phoneNumber = null,
@@ -100,10 +99,11 @@ final class Device implements BaseModel
      *
      * In all cases, publicAddress must be specified, along with at least one of either privateAddress or publicPort, dependent upon which is known. In general, mobile devices cannot be identified by their public IPv4 address alone.
      *
-     * @param Ipv4Address|Ipv4AddressShape $ipv4Address
+     * @param DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape $ipv4Address
      */
-    public function withIpv4Address(Ipv4Address|array $ipv4Address): self
-    {
+    public function withIpv4Address(
+        DeviceIdentifierDeviceIpv4Addr|array $ipv4Address
+    ): self {
         $self = clone $this;
         $self['ipv4Address'] = $ipv4Address;
 

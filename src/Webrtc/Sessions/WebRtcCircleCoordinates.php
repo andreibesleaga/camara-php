@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\SessionUpdateStatusParams\LocationDetails\Coordinates;
+namespace Camara\Webrtc\Sessions;
 
 use Camara\Core\Attributes\Required;
 use Camara\Core\Concerns\SdkModel;

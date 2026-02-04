@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails\Confidence;
+namespace Camara\Webrtc\Sessions\WebRtcLocationDetails\Confidence;
 
 /**
  * The probability density function (PDF) associated with the confidence value.

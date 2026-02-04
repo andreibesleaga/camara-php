@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camara\Deviceidentifier\DeviceidentifierGetIdentifierResponse\Device;
+namespace Camara\Deviceidentifier;
 
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
@@ -17,15 +17,15 @@ use Camara\Core\Contracts\BaseModel;
  *
  * In all cases, publicAddress must be specified, along with at least one of either privateAddress or publicPort, dependent upon which is known. In general, mobile devices cannot be identified by their public IPv4 address alone.
  *
- * @phpstan-type Ipv4AddressShape = array{
+ * @phpstan-type DeviceIdentifierDeviceIpv4AddrShape = array{
  *   privateAddress?: string|null,
  *   publicAddress?: string|null,
  *   publicPort?: int|null,
  * }
  */
-final class Ipv4Address implements BaseModel
+final class DeviceIdentifierDeviceIpv4Addr implements BaseModel
 {
-    /** @use SdkModel<Ipv4AddressShape> */
+    /** @use SdkModel<DeviceIdentifierDeviceIpv4AddrShape> */
     use SdkModel;
 
     /**

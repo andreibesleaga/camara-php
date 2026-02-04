@@ -2,25 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\MediaSessionInformation;
+namespace Camara\Webrtc\Sessions;
 
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Confidence;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcCircleCoordinates;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcEllipsoidCoordinates;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Method;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Shape;
+use Camara\Webrtc\Sessions\WebRtcLocationDetails\Confidence;
+use Camara\Webrtc\Sessions\WebRtcLocationDetails\Method;
+use Camara\Webrtc\Sessions\WebRtcLocationDetails\Shape;
 
 /**
  * Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
  *
- * @phpstan-import-type CoordinatesVariants from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates
- * @phpstan-import-type ConfidenceShape from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Confidence
- * @phpstan-import-type CoordinatesShape from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates
+ * @phpstan-import-type CoordinatesVariants from \Camara\Webrtc\Sessions\WebRtcLocationDetails\Coordinates
+ * @phpstan-import-type ConfidenceShape from \Camara\Webrtc\Sessions\WebRtcLocationDetails\Confidence
+ * @phpstan-import-type CoordinatesShape from \Camara\Webrtc\Sessions\WebRtcLocationDetails\Coordinates
  *
- * @phpstan-type LocationDetailsShape = array{
+ * @phpstan-type WebRtcLocationDetailsShape = array{
  *   confidence?: null|Confidence|ConfidenceShape,
  *   coordinates?: CoordinatesShape|null,
  *   method?: null|Method|value-of<Method>,
@@ -28,9 +26,9 @@ use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Shape;
  *   timestamp?: \DateTimeInterface|null,
  * }
  */
-final class LocationDetails implements BaseModel
+final class WebRtcLocationDetails implements BaseModel
 {
-    /** @use SdkModel<LocationDetailsShape> */
+    /** @use SdkModel<WebRtcLocationDetailsShape> */
     use SdkModel;
 
     /**

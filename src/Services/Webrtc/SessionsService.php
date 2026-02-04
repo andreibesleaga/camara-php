@@ -12,13 +12,12 @@ use Camara\ServiceContracts\Webrtc\SessionsContract;
 use Camara\Webrtc\Sessions\MediaSessionInformation;
 use Camara\Webrtc\Sessions\SdpDescriptor;
 use Camara\Webrtc\Sessions\SessionCreateParams\CallType;
-use Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails;
 use Camara\Webrtc\Sessions\SessionCreateParams\Status;
+use Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 /**
- * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails
- * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\SessionUpdateStatusParams\LocationDetails as LocationDetailsShape1
  * @phpstan-import-type SdpDescriptorShape from \Camara\Webrtc\Sessions\SdpDescriptor
+ * @phpstan-import-type WebRtcLocationDetailsShape from \Camara\Webrtc\Sessions\WebRtcLocationDetails
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class SessionsService implements SessionsContract
@@ -52,7 +51,7 @@ final class SessionsService implements SessionsContract
      * present in a request from the application to the server to create a
      * session.
      * @param CallType|value-of<CallType> $callType Body param: Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
-     * @param LocationDetails|LocationDetailsShape $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
+     * @param WebRtcLocationDetails|WebRtcLocationDetailsShape $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
      * @param string $mediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      * @param SdpDescriptor|SdpDescriptorShape $offer Body param: **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
      * is used, the content of this element SHALL be embedded in a CDATA
@@ -77,7 +76,7 @@ final class SessionsService implements SessionsContract
         string $registrationID,
         SdpDescriptor|array|null $answer = null,
         CallType|string|null $callType = null,
-        LocationDetails|array|null $locationDetails = null,
+        WebRtcLocationDetails|array|null $locationDetails = null,
         ?string $mediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
@@ -184,7 +183,7 @@ final class SessionsService implements SessionsContract
      * present in a request from the application to the server to create a
      * session.
      * @param \Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType|value-of<\Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType> $callType Body param: Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
-     * @param \Camara\Webrtc\Sessions\SessionUpdateStatusParams\LocationDetails|LocationDetailsShape1 $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
+     * @param WebRtcLocationDetails|WebRtcLocationDetailsShape $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
      * @param string $mediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      * @param SdpDescriptor|SdpDescriptorShape $offer Body param: **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
      * is used, the content of this element SHALL be embedded in a CDATA
@@ -209,7 +208,7 @@ final class SessionsService implements SessionsContract
         string $mediaSessionID_,
         SdpDescriptor|array|null $answer = null,
         \Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType|string|null $callType = null,
-        \Camara\Webrtc\Sessions\SessionUpdateStatusParams\LocationDetails|array|null $locationDetails = null,
+        WebRtcLocationDetails|array|null $locationDetails = null,
         ?string $mediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
