@@ -7,15 +7,15 @@ namespace Camara\Deviceidentifier\DeviceidentifierGetPpidResponse;
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
-use Camara\Deviceidentifier\DeviceidentifierGetPpidResponse\Device\Ipv4Address;
+use Camara\Deviceidentifier\DeviceIdentifierDeviceIpv4Addr;
 
 /**
  * The device subscription identifier that was used to identify the device whose identifier is being returned. If this property is not present, then the device subscription identifier specified in the request was used.
  *
- * @phpstan-import-type Ipv4AddressShape from \Camara\Deviceidentifier\DeviceidentifierGetPpidResponse\Device\Ipv4Address
+ * @phpstan-import-type DeviceIdentifierDeviceIpv4AddrShape from \Camara\Deviceidentifier\DeviceIdentifierDeviceIpv4Addr
  *
  * @phpstan-type DeviceShape = array{
- *   ipv4Address?: null|Ipv4Address|Ipv4AddressShape,
+ *   ipv4Address?: null|DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape,
  *   ipv6Address?: string|null,
  *   networkAccessIdentifier?: string|null,
  *   phoneNumber?: string|null,
@@ -36,7 +36,7 @@ final class Device implements BaseModel
      * In all cases, publicAddress must be specified, along with at least one of either privateAddress or publicPort, dependent upon which is known. In general, mobile devices cannot be identified by their public IPv4 address alone.
      */
     #[Optional]
-    public ?Ipv4Address $ipv4Address;
+    public ?DeviceIdentifierDeviceIpv4Addr $ipv4Address;
 
     /**
      * The device should be identified by the observed IPv6 address, or by any single IPv6 address from within the subnet allocated to the device (e.g. adding ::0 to the /64 prefix).
@@ -66,10 +66,10 @@ final class Device implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param Ipv4Address|Ipv4AddressShape|null $ipv4Address
+     * @param DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape|null $ipv4Address
      */
     public static function with(
-        Ipv4Address|array|null $ipv4Address = null,
+        DeviceIdentifierDeviceIpv4Addr|array|null $ipv4Address = null,
         ?string $ipv6Address = null,
         ?string $networkAccessIdentifier = null,
         ?string $phoneNumber = null,
@@ -93,10 +93,11 @@ final class Device implements BaseModel
      *
      * In all cases, publicAddress must be specified, along with at least one of either privateAddress or publicPort, dependent upon which is known. In general, mobile devices cannot be identified by their public IPv4 address alone.
      *
-     * @param Ipv4Address|Ipv4AddressShape $ipv4Address
+     * @param DeviceIdentifierDeviceIpv4Addr|DeviceIdentifierDeviceIpv4AddrShape $ipv4Address
      */
-    public function withIpv4Address(Ipv4Address|array $ipv4Address): self
-    {
+    public function withIpv4Address(
+        DeviceIdentifierDeviceIpv4Addr|array $ipv4Address
+    ): self {
         $self = clone $this;
         $self['ipv4Address'] = $ipv4Address;
 

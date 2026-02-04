@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails;
+namespace Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 use Camara\Core\Concerns\SdkUnion;
 use Camara\Core\Conversion\Contracts\Converter;
 use Camara\Core\Conversion\Contracts\ConverterSource;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcCircleCoordinates;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcEllipsoidCoordinates;
+use Camara\Webrtc\Sessions\WebRtcCircleCoordinates;
+use Camara\Webrtc\Sessions\WebRtcEllipsoidCoordinates;
 
 /**
  * The coordinates of the caller's location, specific to the chosen shape.
  *
- * @phpstan-import-type WebRtcCircleCoordinatesShape from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcCircleCoordinates
- * @phpstan-import-type WebRtcEllipsoidCoordinatesShape from \Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Coordinates\WebRtcEllipsoidCoordinates
+ * @phpstan-import-type WebRtcCircleCoordinatesShape from \Camara\Webrtc\Sessions\WebRtcCircleCoordinates
+ * @phpstan-import-type WebRtcEllipsoidCoordinatesShape from \Camara\Webrtc\Sessions\WebRtcEllipsoidCoordinates
  *
  * @phpstan-type CoordinatesVariants = WebRtcCircleCoordinates|WebRtcEllipsoidCoordinates
  * @phpstan-type CoordinatesShape = CoordinatesVariants|WebRtcCircleCoordinatesShape|WebRtcEllipsoidCoordinatesShape

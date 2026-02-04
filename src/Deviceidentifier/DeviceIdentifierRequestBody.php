@@ -7,15 +7,14 @@ namespace Camara\Deviceidentifier;
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
-use Camara\Deviceidentifier\DeviceIdentifierRequestBody\Device;
 
 /**
  * Common request body to allow optional Device object to be passed.
  *
- * @phpstan-import-type DeviceShape from \Camara\Deviceidentifier\DeviceIdentifierRequestBody\Device
+ * @phpstan-import-type DeviceIdentifierDeviceShape from \Camara\Deviceidentifier\DeviceIdentifierDevice
  *
  * @phpstan-type DeviceIdentifierRequestBodyShape = array{
- *   device?: null|Device|DeviceShape
+ *   device?: null|DeviceIdentifierDevice|DeviceIdentifierDeviceShape
  * }
  */
 final class DeviceIdentifierRequestBody implements BaseModel
@@ -34,7 +33,7 @@ final class DeviceIdentifierRequestBody implements BaseModel
      * NOTE 2: For the current Commonalities release, we are enforcing that the networkAccessIdentifier is only part of the schema for future-proofing, and CAMARA does not currently allow its use. After the CAMARA meta-release work is concluded and the relevant issues are resolved, its use will need to be explicitly documented in the guidelines.
      */
     #[Optional]
-    public ?Device $device;
+    public ?DeviceIdentifierDevice $device;
 
     public function __construct()
     {
@@ -46,10 +45,11 @@ final class DeviceIdentifierRequestBody implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param Device|DeviceShape|null $device
+     * @param DeviceIdentifierDevice|DeviceIdentifierDeviceShape|null $device
      */
-    public static function with(Device|array|null $device = null): self
-    {
+    public static function with(
+        DeviceIdentifierDevice|array|null $device = null
+    ): self {
         $self = new self;
 
         null !== $device && $self['device'] = $device;
@@ -67,9 +67,9 @@ final class DeviceIdentifierRequestBody implements BaseModel
      * NOTE 1: The MNO might support only a subset of these options. The API invoker can provide multiple identifiers to be compatible across different MNOs. In this case the identifiers MUST belong to the same device.
      * NOTE 2: For the current Commonalities release, we are enforcing that the networkAccessIdentifier is only part of the schema for future-proofing, and CAMARA does not currently allow its use. After the CAMARA meta-release work is concluded and the relevant issues are resolved, its use will need to be explicitly documented in the guidelines.
      *
-     * @param Device|DeviceShape $device
+     * @param DeviceIdentifierDevice|DeviceIdentifierDeviceShape $device
      */
-    public function withDevice(Device|array $device): self
+    public function withDevice(DeviceIdentifierDevice|array $device): self
     {
         $self = clone $this;
         $self['device'] = $device;
