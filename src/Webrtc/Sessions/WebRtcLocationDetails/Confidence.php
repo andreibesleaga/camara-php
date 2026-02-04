@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails;
+namespace Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 use Camara\Core\Attributes\Optional;
 use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Contracts\BaseModel;
-use Camara\Webrtc\Sessions\MediaSessionInformation\LocationDetails\Confidence\Pdf;
+use Camara\Webrtc\Sessions\WebRtcLocationDetails\Confidence\Pdf;
 
 /**
  * The confidence level of the location information.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails;
+namespace Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 /**
  * The shape representing the caller's location (Circle or Ellipsoid).

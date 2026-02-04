@@ -7,6 +7,7 @@ use Camara\Connectednetworktype\Subscriptions\ConnectedNetworkTypeProtocol;
 use Camara\Connectednetworktype\Subscriptions\ConnectedNetworkTypeSubscription;
 use Camara\Connectednetworktype\Subscriptions\ConnectedNetworkTypeSubscriptionEventType;
 use Camara\Connectednetworktype\Subscriptions\SubscriptionDeleteResponse;
+use Camara\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -24,7 +25,7 @@ final class SubscriptionsTest extends TestCase
     {
         parent::setUp();
 
-        $testUrl = getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
+        $testUrl = Util::getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
         $client = new Client(
             deviceLocationNotificationsAPIKey: 'My Device Location Notifications API Key',
             notificationsAPIKey: 'My Notifications API Key',

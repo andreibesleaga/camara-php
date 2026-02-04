@@ -8,20 +8,18 @@ use Camara\Client;
 use Camara\Core\Contracts\BaseResponse;
 use Camara\Core\Exceptions\APIException;
 use Camara\Core\Util;
+use Camara\Deviceidentifier\DeviceIdentifierDevice;
 use Camara\Deviceidentifier\DeviceidentifierGetIdentifierResponse;
 use Camara\Deviceidentifier\DeviceidentifierGetPpidResponse;
 use Camara\Deviceidentifier\DeviceidentifierGetTypeResponse;
 use Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams;
-use Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams\Device;
 use Camara\Deviceidentifier\DeviceidentifierRetrievePpidParams;
 use Camara\Deviceidentifier\DeviceidentifierRetrieveTypeParams;
 use Camara\RequestOptions;
 use Camara\ServiceContracts\DeviceidentifierRawContract;
 
 /**
- * @phpstan-import-type DeviceShape from \Camara\Deviceidentifier\DeviceidentifierRetrieveIdentifierParams\Device
- * @phpstan-import-type DeviceShape from \Camara\Deviceidentifier\DeviceidentifierRetrievePpidParams\Device as DeviceShape1
- * @phpstan-import-type DeviceShape from \Camara\Deviceidentifier\DeviceidentifierRetrieveTypeParams\Device as DeviceShape2
+ * @phpstan-import-type DeviceIdentifierDeviceShape from \Camara\Deviceidentifier\DeviceIdentifierDevice
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class DeviceidentifierRawService implements DeviceidentifierRawContract
@@ -38,7 +36,8 @@ final class DeviceidentifierRawService implements DeviceidentifierRawContract
      * Get details about the specific device being used by a given mobile subscriber
      *
      * @param array{
-     *   device?: Device|DeviceShape, xCorrelator?: string
+     *   device?: DeviceIdentifierDevice|DeviceIdentifierDeviceShape,
+     *   xCorrelator?: string,
      * }|DeviceidentifierRetrieveIdentifierParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -79,7 +78,7 @@ final class DeviceidentifierRawService implements DeviceidentifierRawContract
      * Get a pseudonymous identifier for device being used by a given mobile subscriber
      *
      * @param array{
-     *   device?: DeviceidentifierRetrievePpidParams\Device|DeviceShape1,
+     *   device?: DeviceIdentifierDevice|DeviceIdentifierDeviceShape,
      *   xCorrelator?: string,
      * }|DeviceidentifierRetrievePpidParams $params
      * @param RequestOpts|null $requestOptions
@@ -121,7 +120,7 @@ final class DeviceidentifierRawService implements DeviceidentifierRawContract
      * Get details about the type of device being used by a given mobile subscriber
      *
      * @param array{
-     *   device?: DeviceidentifierRetrieveTypeParams\Device|DeviceShape2,
+     *   device?: DeviceIdentifierDevice|DeviceIdentifierDeviceShape,
      *   xCorrelator?: string,
      * }|DeviceidentifierRetrieveTypeParams $params
      * @param RequestOpts|null $requestOptions

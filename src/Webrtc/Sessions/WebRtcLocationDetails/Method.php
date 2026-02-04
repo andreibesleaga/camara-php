@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails;
+namespace Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 /**
  * The method used to obtain the location information.

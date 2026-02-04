@@ -10,7 +10,6 @@ use Camara\Core\Concerns\SdkModel;
 use Camara\Core\Concerns\SdkParams;
 use Camara\Core\Contracts\BaseModel;
 use Camara\Webrtc\Sessions\SessionCreateParams\CallType;
-use Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails;
 use Camara\Webrtc\Sessions\SessionCreateParams\Status;
 
 /**
@@ -19,13 +18,13 @@ use Camara\Webrtc\Sessions\SessionCreateParams\Status;
  * @see Camara\Services\Webrtc\SessionsService::create()
  *
  * @phpstan-import-type SdpDescriptorShape from \Camara\Webrtc\Sessions\SdpDescriptor
- * @phpstan-import-type LocationDetailsShape from \Camara\Webrtc\Sessions\SessionCreateParams\LocationDetails
+ * @phpstan-import-type WebRtcLocationDetailsShape from \Camara\Webrtc\Sessions\WebRtcLocationDetails
  *
  * @phpstan-type SessionCreateParamsShape = array{
  *   registrationID: string,
  *   answer?: null|SdpDescriptor|SdpDescriptorShape,
  *   callType?: null|CallType|value-of<CallType>,
- *   locationDetails?: null|LocationDetails|LocationDetailsShape,
+ *   locationDetails?: null|WebRtcLocationDetails|WebRtcLocationDetailsShape,
  *   mediaSessionID?: string|null,
  *   offer?: null|SdpDescriptor|SdpDescriptorShape,
  *   originatorAddress?: string|null,
@@ -71,7 +70,7 @@ final class SessionCreateParams implements BaseModel
      * Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
      */
     #[Optional]
-    public ?LocationDetails $locationDetails;
+    public ?WebRtcLocationDetails $locationDetails;
 
     /**
      * The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
@@ -154,7 +153,7 @@ final class SessionCreateParams implements BaseModel
      *
      * @param SdpDescriptor|SdpDescriptorShape|null $answer
      * @param CallType|value-of<CallType>|null $callType
-     * @param LocationDetails|LocationDetailsShape|null $locationDetails
+     * @param WebRtcLocationDetails|WebRtcLocationDetailsShape|null $locationDetails
      * @param SdpDescriptor|SdpDescriptorShape|null $offer
      * @param Status|value-of<Status>|null $status
      */
@@ -162,7 +161,7 @@ final class SessionCreateParams implements BaseModel
         string $registrationID,
         SdpDescriptor|array|null $answer = null,
         CallType|string|null $callType = null,
-        LocationDetails|array|null $locationDetails = null,
+        WebRtcLocationDetails|array|null $locationDetails = null,
         ?string $mediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
@@ -236,10 +235,10 @@ final class SessionCreateParams implements BaseModel
     /**
      * Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
      *
-     * @param LocationDetails|LocationDetailsShape $locationDetails
+     * @param WebRtcLocationDetails|WebRtcLocationDetailsShape $locationDetails
      */
     public function withLocationDetails(
-        LocationDetails|array $locationDetails
+        WebRtcLocationDetails|array $locationDetails
     ): self {
         $self = clone $this;
         $self['locationDetails'] = $locationDetails;
