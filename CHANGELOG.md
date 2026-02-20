@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.4.0 (2026-02-20)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/andreibesleaga/camara-php/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** api update ([8bcc208](https://github.com/andreibesleaga/camara-php/commit/8bcc208225d6a7cdd7952f6bfa9a55afe84df117))
+
+
+### Chores
+
+* **internal:** remove mock server code ([6f606cd](https://github.com/andreibesleaga/camara-php/commit/6f606cdec23b1ee957348df71caa9422f402a1a9))
+* **test:** update skip reason message ([ee78caa](https://github.com/andreibesleaga/camara-php/commit/ee78caa9662c78589d6c92689ceedbe3e3ee0890))
+* update mock server docs ([f854fff](https://github.com/andreibesleaga/camara-php/commit/f854fff90dd5718a72e2b551fa7f42e1e7ad5678))
+
 ## 0.3.0 (2026-02-04)
 
 Full Changelog: [v0.2.1...v0.3.0](https://github.com/andreibesleaga/camara-php/compare/v0.2.1...v0.3.0)

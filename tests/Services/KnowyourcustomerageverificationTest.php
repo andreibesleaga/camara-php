@@ -43,7 +43,7 @@ final class KnowyourcustomerageverificationTest extends TestCase
     public function testVerify(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->knowyourcustomerageverification->verify(
@@ -61,7 +61,7 @@ final class KnowyourcustomerageverificationTest extends TestCase
     public function testVerifyWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->knowyourcustomerageverification->verify(

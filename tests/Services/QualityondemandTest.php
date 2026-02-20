@@ -43,7 +43,7 @@ final class QualityondemandTest extends TestCase
     public function testRetrieveQosProfile(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->qualityondemand->retrieveQosProfile('voice');
@@ -56,7 +56,7 @@ final class QualityondemandTest extends TestCase
     public function testRetrieveQosProfiles(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->qualityondemand->retrieveQosProfiles();

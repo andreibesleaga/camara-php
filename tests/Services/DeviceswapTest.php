@@ -44,7 +44,7 @@ final class DeviceswapTest extends TestCase
     public function testCheck(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceswap->check();
@@ -57,7 +57,7 @@ final class DeviceswapTest extends TestCase
     public function testRetrieveDate(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceswap->retrieveDate();
