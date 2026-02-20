@@ -43,7 +43,7 @@ final class TenureTest extends TestCase
     public function testVerify(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->tenure->verify(tenureDate: '2023-07-03');
@@ -56,7 +56,7 @@ final class TenureTest extends TestCase
     public function testVerifyWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->tenure->verify(

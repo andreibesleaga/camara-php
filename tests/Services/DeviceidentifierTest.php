@@ -45,7 +45,7 @@ final class DeviceidentifierTest extends TestCase
     public function testRetrieveIdentifier(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceidentifier->retrieveIdentifier();
@@ -61,7 +61,7 @@ final class DeviceidentifierTest extends TestCase
     public function testRetrievePpid(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceidentifier->retrievePpid();
@@ -74,7 +74,7 @@ final class DeviceidentifierTest extends TestCase
     public function testRetrieveType(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceidentifier->retrieveType();
