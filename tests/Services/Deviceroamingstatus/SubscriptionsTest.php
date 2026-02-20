@@ -46,7 +46,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreate(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceroamingstatus->subscriptions->create(
@@ -66,7 +66,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreateWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->deviceroamingstatus->subscriptions->create(
