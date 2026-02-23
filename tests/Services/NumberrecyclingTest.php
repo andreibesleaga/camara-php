@@ -43,7 +43,7 @@ final class NumberrecyclingTest extends TestCase
     public function testCheckSubscriberChange(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->numberrecycling->checkSubscriberChange(
@@ -61,7 +61,7 @@ final class NumberrecyclingTest extends TestCase
     public function testCheckSubscriberChangeWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->numberrecycling->checkSubscriberChange(

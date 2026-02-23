@@ -43,7 +43,7 @@ final class OtpvalidationTest extends TestCase
     public function testSendCode(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->otpvalidation->sendCode(
@@ -59,7 +59,7 @@ final class OtpvalidationTest extends TestCase
     public function testSendCodeWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->otpvalidation->sendCode(
@@ -76,7 +76,7 @@ final class OtpvalidationTest extends TestCase
     public function testValidateCode(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->otpvalidation->validateCode(
@@ -92,7 +92,7 @@ final class OtpvalidationTest extends TestCase
     public function testValidateCodeWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->otpvalidation->validateCode(

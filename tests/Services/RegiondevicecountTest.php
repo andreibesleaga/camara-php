@@ -43,7 +43,7 @@ final class RegiondevicecountTest extends TestCase
     public function testGetCount(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->regiondevicecount->getCount();

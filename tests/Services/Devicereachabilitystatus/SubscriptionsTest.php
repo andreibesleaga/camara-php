@@ -46,7 +46,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreate(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->devicereachabilitystatus->subscriptions->create(
@@ -69,7 +69,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreateWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->devicereachabilitystatus->subscriptions->create(
@@ -82,7 +82,7 @@ final class SubscriptionsTest extends TestCase
                             'publicPort' => 59765,
                         ],
                         'ipv6Address' => '2001:db8:85a3:8d3:1319:8a2e:370:7344',
-                        'networkAccessIdentifier' => '123456789@domain.com',
+                        'networkAccessIdentifier' => '123456789@example.com',
                         'phoneNumber' => '+123456789',
                     ],
                 ],
@@ -112,7 +112,7 @@ final class SubscriptionsTest extends TestCase
     public function testRetrieve(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->devicereachabilitystatus->subscriptions->retrieve(
@@ -130,7 +130,7 @@ final class SubscriptionsTest extends TestCase
     public function testList(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->devicereachabilitystatus->subscriptions->list();
@@ -143,7 +143,7 @@ final class SubscriptionsTest extends TestCase
     public function testDelete(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->devicereachabilitystatus->subscriptions->delete(

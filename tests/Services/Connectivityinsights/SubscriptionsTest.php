@@ -46,7 +46,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreate(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->connectivityinsights->subscriptions->create(
@@ -71,7 +71,7 @@ final class SubscriptionsTest extends TestCase
     public function testCreateWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism doesn\'t support callbacks yet');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->connectivityinsights->subscriptions->create(
@@ -120,7 +120,7 @@ final class SubscriptionsTest extends TestCase
     public function testRetrieve(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->connectivityinsights->subscriptions->retrieve(
@@ -135,7 +135,7 @@ final class SubscriptionsTest extends TestCase
     public function testList(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->connectivityinsights->subscriptions->list();
@@ -148,7 +148,7 @@ final class SubscriptionsTest extends TestCase
     public function testDelete(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
+            $this->markTestSkipped('Mock server tests are disabled');
         }
 
         $result = $this->client->connectivityinsights->subscriptions->delete(
