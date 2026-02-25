@@ -43,7 +43,7 @@ final class SessionsRawService implements SessionsRawContract
      *   answer?: SdpDescriptor|SdpDescriptorShape,
      *   callType?: CallType|value-of<CallType>,
      *   locationDetails?: WebRtcLocationDetails|WebRtcLocationDetailsShape,
-     *   mediaSessionID?: string,
+     *   bodyMediaSessionID?: string,
      *   offer?: SdpDescriptor|SdpDescriptorShape,
      *   originatorAddress?: string,
      *   originatorName?: string,
@@ -173,12 +173,12 @@ final class SessionsRawService implements SessionsRawContract
      *
      * The API consumer shall construct the API path using the `mediaSessionId` supplied in the session creation response (origination) or in the invitation notification (termination).
      *
-     * @param string $mediaSessionID_ Path param: The sessionId assigned by the network for the media session
+     * @param string $mediaSessionID Path param: The sessionId assigned by the network for the media session
      * @param array{
      *   answer?: SdpDescriptor|SdpDescriptorShape,
      *   callType?: SessionUpdateStatusParams\CallType|value-of<SessionUpdateStatusParams\CallType>,
      *   locationDetails?: WebRtcLocationDetails|WebRtcLocationDetailsShape,
-     *   mediaSessionID?: string,
+     *   bodyMediaSessionID?: string,
      *   offer?: SdpDescriptor|SdpDescriptorShape,
      *   originatorAddress?: string,
      *   originatorName?: string,
@@ -194,7 +194,7 @@ final class SessionsRawService implements SessionsRawContract
      * @throws APIException
      */
     public function updateStatus(
-        string $mediaSessionID_,
+        string $mediaSessionID,
         array|SessionUpdateStatusParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
@@ -207,7 +207,7 @@ final class SessionsRawService implements SessionsRawContract
         // @phpstan-ignore-next-line return.type
         return $this->client->request(
             method: 'put',
-            path: ['webrtc/sessions/%1$s/status', $mediaSessionID_],
+            path: ['webrtc/sessions/%1$s/status', $mediaSessionID],
             headers: Util::array_transform_keys(
                 array_intersect_key($parsed, array_flip(array_keys($header_params))),
                 $header_params,

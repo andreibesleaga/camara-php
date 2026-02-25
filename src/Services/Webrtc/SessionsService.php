@@ -52,7 +52,7 @@ final class SessionsService implements SessionsContract
      * session.
      * @param CallType|value-of<CallType> $callType Body param: Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
      * @param WebRtcLocationDetails|WebRtcLocationDetailsShape $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
-     * @param string $mediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
+     * @param string $bodyMediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      * @param SdpDescriptor|SdpDescriptorShape $offer Body param: **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
      * is used, the content of this element SHALL be embedded in a CDATA
      * section.
@@ -77,7 +77,7 @@ final class SessionsService implements SessionsContract
         SdpDescriptor|array|null $answer = null,
         CallType|string|null $callType = null,
         WebRtcLocationDetails|array|null $locationDetails = null,
-        ?string $mediaSessionID = null,
+        ?string $bodyMediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
         ?string $originatorName = null,
@@ -93,7 +93,7 @@ final class SessionsService implements SessionsContract
                 'answer' => $answer,
                 'callType' => $callType,
                 'locationDetails' => $locationDetails,
-                'mediaSessionID' => $mediaSessionID,
+                'bodyMediaSessionID' => $bodyMediaSessionID,
                 'offer' => $offer,
                 'originatorAddress' => $originatorAddress,
                 'originatorName' => $originatorName,
@@ -172,7 +172,7 @@ final class SessionsService implements SessionsContract
      *
      * The API consumer shall construct the API path using the `mediaSessionId` supplied in the session creation response (origination) or in the invitation notification (termination).
      *
-     * @param string $mediaSessionID_ Path param: The sessionId assigned by the network for the media session
+     * @param string $mediaSessionID Path param: The sessionId assigned by the network for the media session
      * @param SdpDescriptor|SdpDescriptorShape $answer Body param: **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
      * is used, the content of this element SHALL be embedded in a CDATA
      * section.
@@ -184,7 +184,7 @@ final class SessionsService implements SessionsContract
      * session.
      * @param \Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType|value-of<\Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType> $callType Body param: Type of call. When set to EMERGENCY, the client MAY provide locationDetails. If omitted, treated as REGULAR.
      * @param WebRtcLocationDetails|WebRtcLocationDetailsShape $locationDetails Body param: Details about the caller's location and related information. This object adheres to 3GPP TS 24.229, RFC 4119, RFC 5139, and RFC 5491 for PIDF-LO compatibility.
-     * @param string $mediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
+     * @param string $bodyMediaSessionID Body param: The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      * @param SdpDescriptor|SdpDescriptorShape $offer Body param: **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
      * is used, the content of this element SHALL be embedded in a CDATA
      * section.
@@ -205,11 +205,11 @@ final class SessionsService implements SessionsContract
      * @throws APIException
      */
     public function updateStatus(
-        string $mediaSessionID_,
+        string $mediaSessionID,
         SdpDescriptor|array|null $answer = null,
         \Camara\Webrtc\Sessions\SessionUpdateStatusParams\CallType|string|null $callType = null,
         WebRtcLocationDetails|array|null $locationDetails = null,
-        ?string $mediaSessionID = null,
+        ?string $bodyMediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
         ?string $originatorName = null,
@@ -224,7 +224,7 @@ final class SessionsService implements SessionsContract
                 'answer' => $answer,
                 'callType' => $callType,
                 'locationDetails' => $locationDetails,
-                'mediaSessionID' => $mediaSessionID,
+                'bodyMediaSessionID' => $bodyMediaSessionID,
                 'offer' => $offer,
                 'originatorAddress' => $originatorAddress,
                 'originatorName' => $originatorName,
@@ -236,7 +236,7 @@ final class SessionsService implements SessionsContract
         );
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->updateStatus($mediaSessionID_, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->updateStatus($mediaSessionID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
