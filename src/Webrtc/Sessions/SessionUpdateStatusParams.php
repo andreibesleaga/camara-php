@@ -25,7 +25,7 @@ use Camara\Webrtc\Sessions\SessionUpdateStatusParams\Status;
  *   answer?: null|SdpDescriptor|SdpDescriptorShape,
  *   callType?: null|CallType|value-of<CallType>,
  *   locationDetails?: null|WebRtcLocationDetails|WebRtcLocationDetailsShape,
- *   mediaSessionID?: string|null,
+ *   bodyMediaSessionID?: string|null,
  *   offer?: null|SdpDescriptor|SdpDescriptorShape,
  *   originatorAddress?: string|null,
  *   originatorName?: string|null,
@@ -73,7 +73,7 @@ final class SessionUpdateStatusParams implements BaseModel
      * The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      */
     #[Optional('mediaSessionId')]
-    public ?string $mediaSessionID;
+    public ?string $bodyMediaSessionID;
 
     /**
      * **OFFER**: An inlined session description in SDP format [RFC4566].If XML syntax
@@ -144,7 +144,7 @@ final class SessionUpdateStatusParams implements BaseModel
         SdpDescriptor|array|null $answer = null,
         CallType|string|null $callType = null,
         WebRtcLocationDetails|array|null $locationDetails = null,
-        ?string $mediaSessionID = null,
+        ?string $bodyMediaSessionID = null,
         SdpDescriptor|array|null $offer = null,
         ?string $originatorAddress = null,
         ?string $originatorName = null,
@@ -158,7 +158,7 @@ final class SessionUpdateStatusParams implements BaseModel
         null !== $answer && $self['answer'] = $answer;
         null !== $callType && $self['callType'] = $callType;
         null !== $locationDetails && $self['locationDetails'] = $locationDetails;
-        null !== $mediaSessionID && $self['mediaSessionID'] = $mediaSessionID;
+        null !== $bodyMediaSessionID && $self['bodyMediaSessionID'] = $bodyMediaSessionID;
         null !== $offer && $self['offer'] = $offer;
         null !== $originatorAddress && $self['originatorAddress'] = $originatorAddress;
         null !== $originatorName && $self['originatorName'] = $originatorName;
@@ -221,10 +221,10 @@ final class SessionUpdateStatusParams implements BaseModel
     /**
      * The media session ID created by the network. The mediaSessionId shall not be included in POST requests by the client, but must be included in the notifications from the network to the client device.
      */
-    public function withMediaSessionID(string $mediaSessionID): self
+    public function withBodyMediaSessionID(string $bodyMediaSessionID): self
     {
         $self = clone $this;
-        $self['mediaSessionID'] = $mediaSessionID;
+        $self['bodyMediaSessionID'] = $bodyMediaSessionID;
 
         return $self;
     }
