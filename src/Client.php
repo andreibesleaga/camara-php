@@ -35,6 +35,48 @@ use Http\Discovery\Psr18ClientDiscovery;
  */
 class Client extends BaseClient
 {
+    public string $bearerToken;
+
+    public string $customerInsightsToken;
+
+    public string $deviceSwapToken;
+
+    public string $kycAgeVerificationToken;
+
+    public string $kycFillInToken;
+
+    public string $kycMatchToken;
+
+    public string $tenureToken;
+
+    public string $numberRecyclingToken;
+
+    public string $otpValidationToken;
+
+    public string $callForwardingSignalToken;
+
+    public string $deviceLocationToken;
+
+    public string $populationDensityDataToken;
+
+    public string $regionDeviceCountToken;
+
+    public string $webRtcToken;
+
+    public string $connectivityInsightsToken;
+
+    public string $qualityOnDemandToken;
+
+    public string $deviceIdentifierToken;
+
+    public string $simSwapToken;
+
+    public string $deviceRoamingStatusToken;
+
+    public string $deviceReachabilityStatusToken;
+
+    public string $connectedNetworkTypeToken;
+
     public string $deviceLocationNotificationsAPIKey;
 
     public string $notificationsAPIKey;
@@ -157,6 +199,27 @@ class Client extends BaseClient
      * @param RequestOpts|null $requestOptions
      */
     public function __construct(
+        ?string $bearerToken = null,
+        ?string $customerInsightsToken = null,
+        ?string $deviceSwapToken = null,
+        ?string $kycAgeVerificationToken = null,
+        ?string $kycFillInToken = null,
+        ?string $kycMatchToken = null,
+        ?string $tenureToken = null,
+        ?string $numberRecyclingToken = null,
+        ?string $otpValidationToken = null,
+        ?string $callForwardingSignalToken = null,
+        ?string $deviceLocationToken = null,
+        ?string $populationDensityDataToken = null,
+        ?string $regionDeviceCountToken = null,
+        ?string $webRtcToken = null,
+        ?string $connectivityInsightsToken = null,
+        ?string $qualityOnDemandToken = null,
+        ?string $deviceIdentifierToken = null,
+        ?string $simSwapToken = null,
+        ?string $deviceRoamingStatusToken = null,
+        ?string $deviceReachabilityStatusToken = null,
+        ?string $connectedNetworkTypeToken = null,
         ?string $deviceLocationNotificationsAPIKey = null,
         ?string $notificationsAPIKey = null,
         ?string $populationDensityDataNotificationsAPIKey = null,
@@ -169,6 +232,69 @@ class Client extends BaseClient
         ?string $baseUrl = null,
         RequestOptions|array|null $requestOptions = null,
     ) {
+        $this->bearerToken = (string) ($bearerToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->customerInsightsToken = (string) ($customerInsightsToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->deviceSwapToken = (string) ($deviceSwapToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->kycAgeVerificationToken = (string) ($kycAgeVerificationToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->kycFillInToken = (string) ($kycFillInToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->kycMatchToken = (string) ($kycMatchToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->tenureToken = (string) ($tenureToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->numberRecyclingToken = (string) ($numberRecyclingToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->otpValidationToken = (string) ($otpValidationToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->callForwardingSignalToken = (string) ($callForwardingSignalToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->deviceLocationToken = (string) ($deviceLocationToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->populationDensityDataToken = (string) ($populationDensityDataToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->regionDeviceCountToken = (string) ($regionDeviceCountToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->webRtcToken = (string) ($webRtcToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->connectivityInsightsToken = (string) ($connectivityInsightsToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->qualityOnDemandToken = (string) ($qualityOnDemandToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->deviceIdentifierToken = (string) ($deviceIdentifierToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->simSwapToken = (string) ($simSwapToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->deviceRoamingStatusToken = (string) ($deviceRoamingStatusToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->deviceReachabilityStatusToken = (string) ($deviceReachabilityStatusToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
+        $this->connectedNetworkTypeToken = (string) ($connectedNetworkTypeToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
         $this->deviceLocationNotificationsAPIKey = (string) ($deviceLocationNotificationsAPIKey ?? Util::getenv(
             'CAMARA_DEVICE_LOCATION_NOTIFICATIONS_API_KEY'
         ));
@@ -253,16 +379,125 @@ class Client extends BaseClient
     protected function authHeaders(): array
     {
         return [
+            ...$this->customerInsightsopenID(),
+            ...$this->openID(),
+            ...$this->deviceSwapopenID(),
+            ...$this->knowYourCustomerAgeVerificationopenID(),
+            ...$this->knowYourCustomerFillInopenID(),
+            ...$this->knowYourCustomerMatchopenID(),
+            ...$this->tenureopenID(),
+            ...$this->numberRecyclingopenID(),
+            ...$this->otpValidationopenID(),
+            ...$this->callForwardingSignalopenID(),
+            ...$this->deviceLocationopenID(),
             ...$this->deviceLocationnotificationsBearerAuth(),
             ...$this->notificationsBearerAuth(),
+            ...$this->populationDensityDataopenID(),
             ...$this->populationDensityDatanotificationsBearerAuth(),
+            ...$this->regionDeviceCountopenID(),
             ...$this->regionDeviceCountnotificationsBearerAuth(),
+            ...$this->webRtCopenID(),
+            ...$this->connectivityInsightsopenID(),
             ...$this->connectivityInsightsnotificationsBearerAuth(),
+            ...$this->qualityOnDemandopenID(),
+            ...$this->deviceIdentifieropenID(),
+            ...$this->simSwapopenID(),
             ...$this->simSwapnotificationsBearerAuth(),
+            ...$this->deviceRoamingStatusopenID(),
             ...$this->deviceRoamingStatusnotificationsBearerAuth(),
+            ...$this->deviceReachabilityStatusopenID(),
             ...$this->deviceReachabilityStatusnotificationsBearerAuth(),
+            ...$this->connectedNetworkTypeopenID(),
             ...$this->connectedNetworkTypenotificationsBearerAuth(),
         ];
+    }
+
+    /** @return array<string,string> */
+    protected function customerInsightsopenID(): array
+    {
+        return $this->customerInsightsToken ? [
+            'Authorization' => "Bearer {$this->customerInsightsToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function openID(): array
+    {
+        return $this->bearerToken ? [
+            'Authorization' => "Bearer {$this->bearerToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function deviceSwapopenID(): array
+    {
+        return $this->deviceSwapToken ? [
+            'Authorization' => "Bearer {$this->deviceSwapToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function knowYourCustomerAgeVerificationopenID(): array
+    {
+        return $this->kycAgeVerificationToken ? [
+            'Authorization' => "Bearer {$this->kycAgeVerificationToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function knowYourCustomerFillInopenID(): array
+    {
+        return $this->kycFillInToken ? [
+            'Authorization' => "Bearer {$this->kycFillInToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function knowYourCustomerMatchopenID(): array
+    {
+        return $this->kycMatchToken ? [
+            'Authorization' => "Bearer {$this->kycMatchToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function tenureopenID(): array
+    {
+        return $this->tenureToken ? [
+            'Authorization' => "Bearer {$this->tenureToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function numberRecyclingopenID(): array
+    {
+        return $this->numberRecyclingToken ? [
+            'Authorization' => "Bearer {$this->numberRecyclingToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function otpValidationopenID(): array
+    {
+        return $this->otpValidationToken ? [
+            'Authorization' => "Bearer {$this->otpValidationToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function callForwardingSignalopenID(): array
+    {
+        return $this->callForwardingSignalToken ? [
+            'Authorization' => "Bearer {$this->callForwardingSignalToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function deviceLocationopenID(): array
+    {
+        return $this->deviceLocationToken ? [
+            'Authorization' => "Bearer {$this->deviceLocationToken}",
+        ] : [];
     }
 
     /** @return array<string,string> */
@@ -282,6 +517,14 @@ class Client extends BaseClient
     }
 
     /** @return array<string,string> */
+    protected function populationDensityDataopenID(): array
+    {
+        return $this->populationDensityDataToken ? [
+            'Authorization' => "Bearer {$this->populationDensityDataToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
     protected function populationDensityDatanotificationsBearerAuth(): array
     {
         return $this->populationDensityDataNotificationsAPIKey ? [
@@ -292,10 +535,34 @@ class Client extends BaseClient
     }
 
     /** @return array<string,string> */
+    protected function regionDeviceCountopenID(): array
+    {
+        return $this->regionDeviceCountToken ? [
+            'Authorization' => "Bearer {$this->regionDeviceCountToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
     protected function regionDeviceCountnotificationsBearerAuth(): array
     {
         return $this->regionDeviceCountNotificationsAPIKey ? [
             'Authorization' => "Bearer {$this->regionDeviceCountNotificationsAPIKey}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function webRtCopenID(): array
+    {
+        return $this->webRtcToken ? [
+            'Authorization' => "Bearer {$this->webRtcToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function connectivityInsightsopenID(): array
+    {
+        return $this->connectivityInsightsToken ? [
+            'Authorization' => "Bearer {$this->connectivityInsightsToken}",
         ] : [];
     }
 
@@ -310,10 +577,42 @@ class Client extends BaseClient
     }
 
     /** @return array<string,string> */
+    protected function qualityOnDemandopenID(): array
+    {
+        return $this->qualityOnDemandToken ? [
+            'Authorization' => "Bearer {$this->qualityOnDemandToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function deviceIdentifieropenID(): array
+    {
+        return $this->deviceIdentifierToken ? [
+            'Authorization' => "Bearer {$this->deviceIdentifierToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function simSwapopenID(): array
+    {
+        return $this->simSwapToken ? [
+            'Authorization' => "Bearer {$this->simSwapToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
     protected function simSwapnotificationsBearerAuth(): array
     {
         return $this->simSwapNotificationsAPIKey ? [
             'Authorization' => "Bearer {$this->simSwapNotificationsAPIKey}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function deviceRoamingStatusopenID(): array
+    {
+        return $this->deviceRoamingStatusToken ? [
+            'Authorization' => "Bearer {$this->deviceRoamingStatusToken}",
         ] : [];
     }
 
@@ -328,12 +627,28 @@ class Client extends BaseClient
     }
 
     /** @return array<string,string> */
+    protected function deviceReachabilityStatusopenID(): array
+    {
+        return $this->deviceReachabilityStatusToken ? [
+            'Authorization' => "Bearer {$this->deviceReachabilityStatusToken}",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
     protected function deviceReachabilityStatusnotificationsBearerAuth(): array
     {
         return $this->deviceReachabilityStatusNotificationsAPIKey ? [
             'Authorization' => "Bearer {
         {$this->deviceReachabilityStatusNotificationsAPIKey}
       }",
+        ] : [];
+    }
+
+    /** @return array<string,string> */
+    protected function connectedNetworkTypeopenID(): array
+    {
+        return $this->connectedNetworkTypeToken ? [
+            'Authorization' => "Bearer {$this->connectedNetworkTypeToken}",
         ] : [];
     }
 

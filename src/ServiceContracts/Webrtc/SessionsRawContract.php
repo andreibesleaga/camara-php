@@ -70,7 +70,7 @@ interface SessionsRawContract
     /**
      * @api
      *
-     * @param string $mediaSessionID_ Path param: The sessionId assigned by the network for the media session
+     * @param string $mediaSessionID Path param: The sessionId assigned by the network for the media session
      * @param array<string,mixed>|SessionUpdateStatusParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -79,7 +79,7 @@ interface SessionsRawContract
      * @throws APIException
      */
     public function updateStatus(
-        string $mediaSessionID_,
+        string $mediaSessionID,
         array|SessionUpdateStatusParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
