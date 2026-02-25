@@ -28,6 +28,7 @@ class ClientTest extends TestCase
 
         $client = new \Camara\Client(
             baseUrl: 'http://localhost',
+            bearerToken: 'My Bearer Token',
             deviceLocationNotificationsAPIKey: 'My Device Location Notifications API Key',
             notificationsAPIKey: 'My Notifications API Key',
             populationDensityDataNotificationsAPIKey: 'My Population Density Data Notifications API Key',

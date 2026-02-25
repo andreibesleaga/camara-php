@@ -26,6 +26,7 @@ final class DeviceidentifierTest extends TestCase
 
         $testUrl = Util::getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
         $client = new Client(
+            bearerToken: 'My Bearer Token',
             deviceLocationNotificationsAPIKey: 'My Device Location Notifications API Key',
             notificationsAPIKey: 'My Notifications API Key',
             populationDensityDataNotificationsAPIKey: 'My Population Density Data Notifications API Key',
