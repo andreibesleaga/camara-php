@@ -38,7 +38,9 @@ Parameters with a default value must be set by name.
 
 use Camara\Client;
 
-$client = new Client();
+$client = new Client(
+  bearerToken: getenv('CAMARA_BEARER_TOKEN') ?: 'My Bearer Token'
+);
 
 $scoring = $client->customerinsights->scoring->retrieve();
 

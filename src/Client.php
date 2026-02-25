@@ -35,6 +35,8 @@ use Http\Discovery\Psr18ClientDiscovery;
  */
 class Client extends BaseClient
 {
+    public string $bearerToken;
+
     public string $deviceLocationNotificationsAPIKey;
 
     public string $notificationsAPIKey;
@@ -157,6 +159,7 @@ class Client extends BaseClient
      * @param RequestOpts|null $requestOptions
      */
     public function __construct(
+        ?string $bearerToken = null,
         ?string $deviceLocationNotificationsAPIKey = null,
         ?string $notificationsAPIKey = null,
         ?string $populationDensityDataNotificationsAPIKey = null,
@@ -169,6 +172,9 @@ class Client extends BaseClient
         ?string $baseUrl = null,
         RequestOptions|array|null $requestOptions = null,
     ) {
+        $this->bearerToken = (string) ($bearerToken ?? Util::getenv(
+            'CAMARA_BEARER_TOKEN'
+        ));
         $this->deviceLocationNotificationsAPIKey = (string) ($deviceLocationNotificationsAPIKey ?? Util::getenv(
             'CAMARA_DEVICE_LOCATION_NOTIFICATIONS_API_KEY'
         ));
@@ -253,6 +259,7 @@ class Client extends BaseClient
     protected function authHeaders(): array
     {
         return [
+            ...$this->openID(),
             ...$this->deviceLocationnotificationsBearerAuth(),
             ...$this->notificationsBearerAuth(),
             ...$this->populationDensityDatanotificationsBearerAuth(),
@@ -263,6 +270,14 @@ class Client extends BaseClient
             ...$this->deviceReachabilityStatusnotificationsBearerAuth(),
             ...$this->connectedNetworkTypenotificationsBearerAuth(),
         ];
+    }
+
+    /** @return array<string,string> */
+    protected function openID(): array
+    {
+        return $this->bearerToken ? [
+            'Authorization' => "Bearer {$this->bearerToken}",
+        ] : [];
     }
 
     /** @return array<string,string> */
