@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1 (2026-02-27)
+
+Full Changelog: [v0.5.0...v0.5.1](https://github.com/andreibesleaga/camara-php/compare/v0.5.0...v0.5.1)
+
+### Chores
+
+* **internal:** upgrade phpunit ([1f1fafc](https://github.com/andreibesleaga/camara-php/commit/1f1fafc48c41e094225b99c89b7635a4af90e94d))
+
 ## 0.5.0 (2026-02-25)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/andreibesleaga/camara-php/compare/v0.4.0...v0.5.0)
