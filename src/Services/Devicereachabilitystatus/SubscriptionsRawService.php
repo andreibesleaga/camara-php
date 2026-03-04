@@ -23,6 +23,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Devicereachabilitystatus\SubscriptionsRawContract;
 
 /**
+ * Device Reachability Status Subscriptions.
+ *
  * @phpstan-import-type DeviceReachabilityStatusConfigShape from \Camara\Devicereachabilitystatus\Subscriptions\DeviceReachabilityStatusConfig
  * @phpstan-import-type SinkCredentialShape from \Camara\Devicereachabilitystatus\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

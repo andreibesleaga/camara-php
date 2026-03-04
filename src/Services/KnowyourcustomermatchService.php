@@ -14,6 +14,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\KnowyourcustomermatchContract;
 
 /**
+ * Know Your Customer Match.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class KnowyourcustomermatchService implements KnowyourcustomermatchContract

@@ -18,6 +18,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\QualityondemandRawContract;
 
 /**
+ * QoS Profiles.
+ *
  * @phpstan-import-type DeviceShape from \Camara\Qualityondemand\QualityondemandRetrieveQosProfilesParams\Device
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */

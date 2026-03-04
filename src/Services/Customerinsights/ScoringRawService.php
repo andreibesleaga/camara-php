@@ -15,6 +15,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Customerinsights\ScoringRawContract;
 
 /**
+ * Customer Insights.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class ScoringRawService implements ScoringRawContract

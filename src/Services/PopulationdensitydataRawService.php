@@ -16,6 +16,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\PopulationdensitydataRawContract;
 
 /**
+ * Population Density Data.
+ *
  * @phpstan-import-type AreaShape from \Camara\Populationdensitydata\PopulationdensitydataRetrieveParams\Area
  * @phpstan-import-type SinkCredentialShape from \Camara\Populationdensitydata\PopulationdensitydataRetrieveParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

@@ -23,6 +23,8 @@ use Camara\Simswap\Subscriptions\SubscriptionListParams;
 use Camara\Simswap\Subscriptions\SubscriptionRetrieveParams;
 
 /**
+ * Sim Swap Subscriptions.
+ *
  * @phpstan-import-type SimSwapConfigShape from \Camara\Simswap\Subscriptions\SimSwapConfig
  * @phpstan-import-type SinkCredentialShape from \Camara\Simswap\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

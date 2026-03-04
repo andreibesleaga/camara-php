@@ -17,6 +17,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Connectednetworktype\SubscriptionsContract;
 
 /**
+ * Connected Network Type Subscriptions.
+ *
  * @phpstan-import-type ConnectedNetworkTypeConfigShape from \Camara\Connectednetworktype\Subscriptions\ConnectedNetworkTypeConfig
  * @phpstan-import-type SinkCredentialShape from \Camara\Connectednetworktype\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

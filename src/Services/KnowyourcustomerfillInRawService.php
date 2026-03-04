@@ -14,6 +14,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\KnowyourcustomerfillInRawContract;
 
 /**
+ * Know Your Customer Fill-in.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class KnowyourcustomerfillInRawService implements KnowyourcustomerfillInRawContract

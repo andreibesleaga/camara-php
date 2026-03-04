@@ -12,6 +12,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\KnowyourcustomerageverificationContract;
 
 /**
+ * Know Your Customer Age Verification.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class KnowyourcustomerageverificationService implements KnowyourcustomerageverificationContract
