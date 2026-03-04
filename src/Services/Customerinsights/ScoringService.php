@@ -13,6 +13,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Customerinsights\ScoringContract;
 
 /**
+ * Customer Insights.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class ScoringService implements ScoringContract

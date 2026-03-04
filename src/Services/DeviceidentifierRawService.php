@@ -19,6 +19,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\DeviceidentifierRawContract;
 
 /**
+ * Device Identifier.
+ *
  * @phpstan-import-type DeviceIdentifierDeviceShape from \Camara\Deviceidentifier\DeviceIdentifierDevice
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */

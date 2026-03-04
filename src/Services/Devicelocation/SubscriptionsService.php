@@ -17,6 +17,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Devicelocation\SubscriptionsContract;
 
 /**
+ * Device Geofencing Subscriptions.
+ *
  * @phpstan-import-type ConfigShape from \Camara\Devicelocation\Subscriptions\SubscriptionCreateParams\Config
  * @phpstan-import-type SinkCredentialShape from \Camara\Devicelocation\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

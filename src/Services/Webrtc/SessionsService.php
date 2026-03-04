@@ -16,6 +16,8 @@ use Camara\Webrtc\Sessions\SessionCreateParams\Status;
 use Camara\Webrtc\Sessions\WebRtcLocationDetails;
 
 /**
+ * WebRTC Call Handling.
+ *
  * @phpstan-import-type SdpDescriptorShape from \Camara\Webrtc\Sessions\SdpDescriptor
  * @phpstan-import-type WebRtcLocationDetailsShape from \Camara\Webrtc\Sessions\WebRtcLocationDetails
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

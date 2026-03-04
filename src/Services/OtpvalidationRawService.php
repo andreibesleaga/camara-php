@@ -15,6 +15,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\OtpvalidationRawContract;
 
 /**
+ * One Time Password SMS.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class OtpvalidationRawService implements OtpvalidationRawContract

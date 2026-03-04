@@ -12,6 +12,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\NumberrecyclingContract;
 
 /**
+ * Number Recycling.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class NumberrecyclingService implements NumberrecyclingContract

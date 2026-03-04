@@ -17,6 +17,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Connectivityinsights\SubscriptionsContract;
 
 /**
+ * Connectivity Insights Subscriptions.
+ *
  * @phpstan-import-type ConfigShape from \Camara\Connectivityinsights\Subscriptions\Config
  * @phpstan-import-type SinkCredentialShape from \Camara\Connectivityinsights\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
