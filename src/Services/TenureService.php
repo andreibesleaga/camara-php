@@ -12,6 +12,8 @@ use Camara\ServiceContracts\TenureContract;
 use Camara\Tenure\TenureVerifyResponse;
 
 /**
+ * KYC Tenure.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class TenureService implements TenureContract

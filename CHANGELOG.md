@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.2 (2026-03-04)
+
+Full Changelog: [v0.5.1...v0.5.2](https://github.com/andreibesleaga/camara-php/compare/v0.5.1...v0.5.2)
+
+### Chores
+
+* **internal:** codegen related update ([eaa9744](https://github.com/andreibesleaga/camara-php/commit/eaa9744e067fb886ef638949100399039596cab8))
+
 ## 0.5.1 (2026-02-27)
 
 Full Changelog: [v0.5.0...v0.5.1](https://github.com/andreibesleaga/camara-php/compare/v0.5.0...v0.5.1)

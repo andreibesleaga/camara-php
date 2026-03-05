@@ -17,6 +17,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\Deviceroamingstatus\SubscriptionsContract;
 
 /**
+ * Device Roaming Status Subscriptions.
+ *
  * @phpstan-import-type DeviceRoamingStatusConfigShape from \Camara\Deviceroamingstatus\Subscriptions\DeviceRoamingStatusConfig
  * @phpstan-import-type SinkCredentialShape from \Camara\Deviceroamingstatus\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

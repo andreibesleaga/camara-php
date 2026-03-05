@@ -16,6 +16,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\DeviceswapRawContract;
 
 /**
+ * Device Swap.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class DeviceswapRawService implements DeviceswapRawContract

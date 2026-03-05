@@ -17,6 +17,8 @@ use Camara\Simswap\Subscriptions\SubscriptionCreateParams\SinkCredential;
 use Camara\Simswap\Subscriptions\SubscriptionDeleteResponse;
 
 /**
+ * Sim Swap Subscriptions.
+ *
  * @phpstan-import-type SimSwapConfigShape from \Camara\Simswap\Subscriptions\SimSwapConfig
  * @phpstan-import-type SinkCredentialShape from \Camara\Simswap\Subscriptions\SubscriptionCreateParams\SinkCredential
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions

@@ -13,6 +13,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\CallforwardingsignalContract;
 
 /**
+ * Call Forwarding Signal.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class CallforwardingsignalService implements CallforwardingsignalContract

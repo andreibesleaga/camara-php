@@ -16,6 +16,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\KnowyourcustomermatchRawContract;
 
 /**
+ * Know Your Customer Match.
+ *
  * @phpstan-import-type RequestOpts from \Camara\RequestOptions
  */
 final class KnowyourcustomermatchRawService implements KnowyourcustomermatchRawContract

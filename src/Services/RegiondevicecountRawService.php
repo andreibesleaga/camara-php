@@ -17,6 +17,8 @@ use Camara\RequestOptions;
 use Camara\ServiceContracts\RegiondevicecountRawContract;
 
 /**
+ * Region Device Count.
+ *
  * @phpstan-import-type AreaShape from \Camara\Regiondevicecount\RegiondevicecountGetCountParams\Area
  * @phpstan-import-type FilterShape from \Camara\Regiondevicecount\RegiondevicecountGetCountParams\Filter
  * @phpstan-import-type SinkCredentialShape from \Camara\Regiondevicecount\RegiondevicecountGetCountParams\SinkCredential
