@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.3 (2026-03-07)
+
+Full Changelog: [v0.5.2...v0.5.3](https://github.com/andreibesleaga/camara-php/compare/v0.5.2...v0.5.3)
+
+### Bug Fixes
+
+* **client:** handle C-style escaped characters ([f0b9210](https://github.com/andreibesleaga/camara-php/commit/f0b9210718e0bf1087ef19fc565ea8c546778f91))
+
 ## 0.5.2 (2026-03-04)
 
 Full Changelog: [v0.5.1...v0.5.2](https://github.com/andreibesleaga/camara-php/compare/v0.5.1...v0.5.2)
