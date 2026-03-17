@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.4 (2026-03-17)
+
+Full Changelog: [v0.5.3...v0.5.4](https://github.com/andreibesleaga/camara-php/compare/v0.5.3...v0.5.4)
+
+### Chores
+
+* **internal:** tweak CI branches ([df29dbb](https://github.com/andreibesleaga/camara-php/commit/df29dbb71f5b1682647d97035dc2c8c3ba75b415))
+
 ## 0.5.3 (2026-03-07)
 
 Full Changelog: [v0.5.2...v0.5.3](https://github.com/andreibesleaga/camara-php/compare/v0.5.2...v0.5.3)
