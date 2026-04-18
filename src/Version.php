@@ -5,5 +5,5 @@ declare(strict_types=1);
 namespace Camara;
 
 // x-release-please-start-version
-const VERSION = '0.5.4';
+const VERSION = '0.5.5';
 // x-release-please-end
