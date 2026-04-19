@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.5 (2026-04-18)
+
+Full Changelog: [v0.5.4...v0.5.5](https://github.com/andreibesleaga/camara-php/compare/v0.5.4...v0.5.5)
+
+### Bug Fixes
+
+* **client:** properly generate file params ([020c6fa](https://github.com/andreibesleaga/camara-php/commit/020c6fa44d1be34649d93ef013562b39442a4a99))
+* **client:** resolve serialization issue with unions and enums ([cd0d201](https://github.com/andreibesleaga/camara-php/commit/cd0d2011e949a39038f23b452aa55fcd9ed00056))
+* populate enum-typed properties with enum instances ([0e95d1b](https://github.com/andreibesleaga/camara-php/commit/0e95d1b1eaf59445f72181d4438ec7d86853d5a1))
+
 ## 0.5.4 (2026-03-17)
 
 Full Changelog: [v0.5.3...v0.5.4](https://github.com/andreibesleaga/camara-php/compare/v0.5.3...v0.5.4)
