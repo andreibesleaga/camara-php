@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.6 (2026-04-26)
+
+Full Changelog: [v0.5.5...v0.5.6](https://github.com/andreibesleaga/camara-php/compare/v0.5.5...v0.5.6)
+
+### Bug Fixes
+
+* revert enum parsing change that lead to unconditional failure ([9ff5d61](https://github.com/andreibesleaga/camara-php/commit/9ff5d610731f4c0dc471703c7296209fd9c0a1ec))
+
 ## 0.5.5 (2026-04-18)
 
 Full Changelog: [v0.5.4...v0.5.5](https://github.com/andreibesleaga/camara-php/compare/v0.5.4...v0.5.5)
