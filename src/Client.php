@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Camara;
 
 use Camara\Core\BaseClient;
+use Camara\Core\Implementation\StreamingHttpClient;
 use Camara\Core\Util;
 use Camara\Services\CallforwardingsignalService;
 use Camara\Services\ConnectednetworktypeService;
@@ -336,6 +337,11 @@ class Client extends BaseClient
             ),
             $requestOptions,
         );
+
+        if (is_null($options->streamingTransporter)) {
+            assert(!is_null($options->transporter));
+            $options->streamingTransporter = new StreamingHttpClient($options->transporter);
+        }
 
         /** @var array<string, string|null> $headers */
         $headers = [
