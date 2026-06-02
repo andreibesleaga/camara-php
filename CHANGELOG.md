@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.7 (2026-05-25)
+
+Full Changelog: [v0.5.6...v0.5.7](https://github.com/andreibesleaga/camara-php/compare/v0.5.6...v0.5.7)
+
 ## 0.5.6 (2026-04-26)
 
 Full Changelog: [v0.5.5...v0.5.6](https://github.com/andreibesleaga/camara-php/compare/v0.5.5...v0.5.6)
