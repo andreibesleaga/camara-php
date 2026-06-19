@@ -4,6 +4,8 @@ The Camara PHP library provides convenient access to the Camara REST API from an
 
 It is generated with [Stainless](https://www.stainless.com/).
 
+API Reference: https://github.com/andreibesleaga/camara-api-reference
+
 ## Documentation
 
 ## Installation
