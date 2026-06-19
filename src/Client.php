@@ -337,18 +337,31 @@ class Client extends BaseClient
             $requestOptions,
         );
 
+        /** @var array<string, string|null> $headers */
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'User-Agent' => sprintf('camara/PHP %s', VERSION),
+            'X-Stainless-Lang' => 'php',
+            'X-Stainless-Package-Version' => '0.5.5',
+            'X-Stainless-Arch' => Util::machtype(),
+            'X-Stainless-OS' => Util::ostype(),
+            'X-Stainless-Runtime' => php_sapi_name(),
+            'X-Stainless-Runtime-Version' => phpversion(),
+        ];
+
+        $customHeadersEnv = Util::getenv('CAMARA_CUSTOM_HEADERS');
+        if (null !== $customHeadersEnv) {
+            foreach (explode("\n", $customHeadersEnv) as $line) {
+                $colon = strpos($line, ':');
+                if (false !== $colon) {
+                    $headers[trim(substr($line, 0, $colon))] = trim(substr($line, $colon + 1));
+                }
+            }
+        }
+
         parent::__construct(
-            headers: [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-                'User-Agent' => sprintf('camara/PHP %s', VERSION),
-                'X-Stainless-Lang' => 'php',
-                'X-Stainless-Package-Version' => '0.0.1',
-                'X-Stainless-Arch' => Util::machtype(),
-                'X-Stainless-OS' => Util::ostype(),
-                'X-Stainless-Runtime' => php_sapi_name(),
-                'X-Stainless-Runtime-Version' => phpversion(),
-            ],
+            headers: $headers,
             baseUrl: $baseUrl,
             options: $options
         );
@@ -528,9 +541,7 @@ class Client extends BaseClient
     protected function populationDensityDatanotificationsBearerAuth(): array
     {
         return $this->populationDensityDataNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->populationDensityDataNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->populationDensityDataNotificationsAPIKey}",
         ] : [];
     }
 
@@ -570,9 +581,7 @@ class Client extends BaseClient
     protected function connectivityInsightsnotificationsBearerAuth(): array
     {
         return $this->connectivityInsightsNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->connectivityInsightsNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->connectivityInsightsNotificationsAPIKey}",
         ] : [];
     }
 
@@ -620,9 +629,7 @@ class Client extends BaseClient
     protected function deviceRoamingStatusnotificationsBearerAuth(): array
     {
         return $this->deviceRoamingStatusNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->deviceRoamingStatusNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->deviceRoamingStatusNotificationsAPIKey}",
         ] : [];
     }
 
@@ -638,9 +645,7 @@ class Client extends BaseClient
     protected function deviceReachabilityStatusnotificationsBearerAuth(): array
     {
         return $this->deviceReachabilityStatusNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->deviceReachabilityStatusNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->deviceReachabilityStatusNotificationsAPIKey}",
         ] : [];
     }
 
@@ -656,9 +661,7 @@ class Client extends BaseClient
     protected function connectedNetworkTypenotificationsBearerAuth(): array
     {
         return $this->connectedNetworkTypeNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->connectedNetworkTypeNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->connectedNetworkTypeNotificationsAPIKey}",
         ] : [];
     }
 
