@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Camara;
 
 use Camara\Core\BaseClient;
+use Camara\Core\Implementation\StreamingHttpClient;
 use Camara\Core\Util;
 use Camara\Services\CallforwardingsignalService;
 use Camara\Services\ConnectednetworktypeService;
@@ -337,18 +338,36 @@ class Client extends BaseClient
             $requestOptions,
         );
 
+        if (is_null($options->streamingTransporter)) {
+            assert(!is_null($options->transporter));
+            $options->streamingTransporter = new StreamingHttpClient($options->transporter);
+        }
+
+        /** @var array<string, string|null> $headers */
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'User-Agent' => sprintf('camara/PHP %s', VERSION),
+            'X-Stainless-Lang' => 'php',
+            'X-Stainless-Package-Version' => '0.5.7',
+            'X-Stainless-Arch' => Util::machtype(),
+            'X-Stainless-OS' => Util::ostype(),
+            'X-Stainless-Runtime' => php_sapi_name(),
+            'X-Stainless-Runtime-Version' => phpversion(),
+        ];
+
+        $customHeadersEnv = Util::getenv('CAMARA_CUSTOM_HEADERS');
+        if (null !== $customHeadersEnv) {
+            foreach (explode("\n", $customHeadersEnv) as $line) {
+                $colon = strpos($line, ':');
+                if (false !== $colon) {
+                    $headers[trim(substr($line, 0, $colon))] = trim(substr($line, $colon + 1));
+                }
+            }
+        }
+
         parent::__construct(
-            headers: [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-                'User-Agent' => sprintf('camara/PHP %s', VERSION),
-                'X-Stainless-Lang' => 'php',
-                'X-Stainless-Package-Version' => '0.0.1',
-                'X-Stainless-Arch' => Util::machtype(),
-                'X-Stainless-OS' => Util::ostype(),
-                'X-Stainless-Runtime' => php_sapi_name(),
-                'X-Stainless-Runtime-Version' => phpversion(),
-            ],
+            headers: $headers,
             baseUrl: $baseUrl,
             options: $options
         );

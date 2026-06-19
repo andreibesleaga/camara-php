@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0 (2026-06-19)
+
+Full Changelog: [v0.5.7...v0.6.0](https://github.com/andreibesleaga/camara-php/compare/v0.5.7...v0.6.0)
+
+### Features
+
+* support setting headers via env ([2280290](https://github.com/andreibesleaga/camara-php/commit/228029021c526366c9a8dd9d6b9c109c33dddbe1))
+
+
+### Chores
+
+* remove custom code ([8a81ab3](https://github.com/andreibesleaga/camara-php/commit/8a81ab3f209cd0c6c18141934d9dd4350a39dfa9))
+
 ## 0.5.7 (2026-05-25)
 
 Full Changelog: [v0.5.6...v0.5.7](https://github.com/andreibesleaga/camara-php/compare/v0.5.6...v0.5.7)
