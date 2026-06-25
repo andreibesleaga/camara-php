@@ -547,9 +547,7 @@ class Client extends BaseClient
     protected function populationDensityDatanotificationsBearerAuth(): array
     {
         return $this->populationDensityDataNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->populationDensityDataNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->populationDensityDataNotificationsAPIKey}",
         ] : [];
     }
 
@@ -589,9 +587,7 @@ class Client extends BaseClient
     protected function connectivityInsightsnotificationsBearerAuth(): array
     {
         return $this->connectivityInsightsNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->connectivityInsightsNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->connectivityInsightsNotificationsAPIKey}",
         ] : [];
     }
 
@@ -639,9 +635,7 @@ class Client extends BaseClient
     protected function deviceRoamingStatusnotificationsBearerAuth(): array
     {
         return $this->deviceRoamingStatusNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->deviceRoamingStatusNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->deviceRoamingStatusNotificationsAPIKey}",
         ] : [];
     }
 
@@ -657,9 +651,7 @@ class Client extends BaseClient
     protected function deviceReachabilityStatusnotificationsBearerAuth(): array
     {
         return $this->deviceReachabilityStatusNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->deviceReachabilityStatusNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->deviceReachabilityStatusNotificationsAPIKey}",
         ] : [];
     }
 
@@ -675,9 +667,7 @@ class Client extends BaseClient
     protected function connectedNetworkTypenotificationsBearerAuth(): array
     {
         return $this->connectedNetworkTypeNotificationsAPIKey ? [
-            'Authorization' => "Bearer {
-        {$this->connectedNetworkTypeNotificationsAPIKey}
-      }",
+            'Authorization' => "Bearer {$this->connectedNetworkTypeNotificationsAPIKey}",
         ] : [];
     }
 
