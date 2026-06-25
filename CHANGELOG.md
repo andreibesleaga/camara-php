@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.4 (2026-06-25)
+
+Full Changelog: [v0.6.3...v0.6.4](https://github.com/andreibesleaga/camara-php/compare/v0.6.3...v0.6.4)
+
+### Bug Fixes
+
+* **ci:** repair malformed Bearer auth header interpolation ([1b0e875](https://github.com/andreibesleaga/camara-php/commit/1b0e875a7c993dd467db23c594545133ff05cff5))
+
 ## 0.6.3 (2026-06-24)
 
 Full Changelog: [v0.6.2...v0.6.3](https://github.com/andreibesleaga/camara-php/compare/v0.6.2...v0.6.3)
